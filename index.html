@@ -53,16 +53,44 @@
             pointer-events: none;
         }
 
-        /* Navigation - extra small */
+        /* Navigation - with darker contrast */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(139, 30, 30, 0.9);
-            padding: 0.3rem 0;  /* Minimal padding */
+            background-color: rgba(100, 20, 20, 0.95);  /* Darker red with less transparency */
+            padding: 0.5rem 0;
             z-index: 1000;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(8px);  /* Slightly more blur */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);  /* Stronger shadow */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);  /* Subtle border */
+        }
+
+        /* Optional: Make the logo and links slightly brighter to pop */
+        .logo {
+            color: #ffffff;  /* Pure white instead of cream */
+            font-size: 1.5rem;
+            font-weight: 400;  /* Slightly bolder */
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);  /* Subtle text shadow */
+        }
+
+        .nav-links a {
+            color: #ffffff;  /* Pure white */
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;  /* Slightly bolder */
+            transition: all 0.3s;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);  /* Subtle text shadow */
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #ffffff;
+            transform: translateY(-1px);
         }
 
         .logo {
