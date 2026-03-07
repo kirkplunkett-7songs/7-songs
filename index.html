@@ -127,24 +127,17 @@
             cursor: pointer;
         }
 
-        /* Hero Section - transparent to show background */
+        /* Hero Section - no dark overlay */
         .hero {
             position: relative;
             height: 100vh;
             overflow: hidden;
             margin-top: 0;
-            background-color: transparent;  /* Make sure hero is transparent */
+            background-color: transparent;
         }
 
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.2);  /* Just a slight darkening */
-            z-index: 0;
-        }
+        /* Hero overlay completely removed - no darkening */
+        /* .hero-overlay has been deleted */
 
         .hero-content {
             position: relative;
@@ -157,7 +150,7 @@
             text-align: center;
             color: white;
             padding: 0 2rem;
-            background-color: transparent;  /* Transparent background */
+            background-color: transparent;
         }
 
         .hero-content h1 {
@@ -407,7 +400,6 @@
     <!-- Home Page -->
     <section id="home">
         <div class="hero">
-            <div class="hero-overlay"></div>
             <div class="hero-content">
                 <h1>7 Songs</h1>
                 <p>Meditation & Sound Therapy</p>
