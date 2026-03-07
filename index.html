@@ -41,7 +41,7 @@
             background-color: var(--deep-red);
         }
 
-        /* Fixed background that stays in place - VISIBLE THROUGH EVERYTHING */
+        /* Fixed background that stays in place */
         .site-background {
             position: fixed;
             top: 0;
@@ -57,53 +57,17 @@
             pointer-events: none;
         }
 
-        /* Navigation - with darker contrast */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(100, 20, 20, 0.95);  /* Darker red with less transparency */
+            background-color: rgba(100, 20, 20, 0.95);
             padding: 0.5rem 0;
             z-index: 1000;
-            backdrop-filter: blur(8px);  /* Slightly more blur */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);  /* Stronger shadow */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);  /* Subtle border */
-        }
-
-        /* Optional: Make the logo and links slightly brighter to pop */
-        .logo {
-            color: #ffffff;  /* Pure white instead of cream */
-            font-size: 1.5rem;
-            font-weight: 400;  /* Slightly bolder */
-            letter-spacing: 2px;
-            text-decoration: none;
-            transition: opacity 0.3s;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);  /* Subtle text shadow */
-        }
-
-        .nav-links a {
-            color: #ffffff;  /* Pure white */
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;  /* Slightly bolder */
-            transition: all 0.3s;
-            padding: 0.3rem 0;
-            border-bottom: 2px solid transparent;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);  /* Subtle text shadow */
-        }
-
-        .nav-links a:hover {
-            border-bottom-color: #ffffff;
-            transform: translateY(-1px);
-        }
-
-        .logo {
-            font-size: 1.3rem;  /* Smaller logo */
-        }
-
-        .nav-links a {
-            font-size: 0.95rem;  /* Smaller text */
-            padding: 0.2rem 0;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .nav-container {
@@ -116,12 +80,13 @@
         }
 
         .logo {
-            color: var(--cream);
-            font-size: 1.8rem;
-            font-weight: 300;
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 400;
             letter-spacing: 2px;
             text-decoration: none;
             transition: opacity 0.3s;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .logo:hover {
@@ -134,21 +99,23 @@
         }
 
         .nav-links a {
-            color: var(--cream);
+            color: #ffffff;
             text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 400;
+            font-size: 0.95rem;
+            font-weight: 500;
             transition: all 0.3s;
-            padding: 0.5rem 0;
+            padding: 0.2rem 0;
             border-bottom: 2px solid transparent;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
         .nav-links a:hover {
-            border-bottom-color: var(--cream);
+            border-bottom-color: #ffffff;
+            transform: translateY(-1px);
         }
 
         .nav-links a.active {
-            border-bottom-color: var(--cream);
+            border-bottom-color: #ffffff;
             font-weight: 500;
         }
 
@@ -159,7 +126,7 @@
             cursor: pointer;
         }
 
-        /* Hero Section - no dark overlay */
+        /* Hero Section */
         .hero {
             position: relative;
             height: 100vh;
@@ -167,9 +134,6 @@
             margin-top: 0;
             background-color: transparent;
         }
-
-        /* Hero overlay completely removed - no darkening */
-        /* .hero-overlay has been deleted */
 
         .hero-content {
             position: relative;
@@ -183,23 +147,22 @@
             color: white;
             padding: 0 2rem;
             background-color: transparent;
-        }
-
-        .hero-content h1 {
-            font-size: 4.5rem;
-            font-weight: 300;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            letter-spacing: 3px;
-            background-color: transparent;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .hero-content p {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             max-width: 800px;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             background-color: transparent;
+            font-style: italic;
+        }
+
+        .hero-content p:last-of-type {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
         }
 
         .cta-button {
@@ -221,36 +184,33 @@
             box-shadow: 0 5px 15px rgba(139, 30, 30, 0.3);
         }
 
-        /* ALL content sections - transparent with just a hint of color */
+        /* Content sections */
         .content-section {
             position: relative;
-            background-color: transparent;  /* COMPLETELY TRANSPARENT */
+            background-color: transparent;
             padding: 6rem 2rem;
-            /* No background color at all - just the text */
         }
 
-        /* Add a very subtle background to the text containers only */
         .section-container {
             max-width: 1200px;
             margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.75);  /* Semi-transparent white background for readability */
+            background-color: rgba(255, 255, 255, 0.85);
             padding: 3rem;
             border-radius: 20px;
-            backdrop-filter: blur(5px);  /* Slight blur for better text contrast */
+            backdrop-filter: blur(5px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        /* Different opacity for different sections if desired */
         #about .section-container {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.9);
         }
 
         #videos .section-container {
-            background-color: rgba(245, 240, 230, 0.8);  /* Slight cream tint */
+            background-color: rgba(245, 240, 230, 0.9);
         }
 
         #contact .section-container {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.9);
         }
 
         .section-title {
@@ -315,26 +275,69 @@
             border: none;
         }
 
-        /* About Page */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+        /* ===== MAGAZINE STYLE ABOUT SECTION (UPDATED) ===== */
+        .about-magazine {
+            width: 100%;
+            overflow: visible;
+        }
+
+        /* Top image - floated right */
+        .about-image-top {
+            float: right;
+            width: 300px;
+            margin: 10px 0 20px 30px;
+            position: relative;
+        }
+
+        /* Bottom image - floated left */
+        .about-image-bottom {
+            float: left;
+            width: 280px;
+            margin: 20px 30px 20px 0;
+            position: relative;
+            clear: both;
+        }
+
+        .about-img {
+            width: 100% !important;
+            height: auto !important;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .about-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Text styles */
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: left;
         }
 
         .about-text p {
             margin-bottom: 1.5rem;
-            font-size: 1.1rem;
         }
 
-        .about-image {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        .about-text h3 {
+            color: var(--deep-red);
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
         }
 
-        /* Contact/Scheduler Page */
+        /* Clear floats after the section */
+        .about-magazine::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Contact/Scheduler */
         .scheduler-container {
             background: rgba(255, 255, 255, 0.9);
             padding: 2rem;
@@ -348,15 +351,15 @@
             border-radius: 8px;
         }
 
-        /* Footer - minimal */
+        /* Footer */
         footer {
             background-color: rgba(107, 22, 22, 0.85);
             backdrop-filter: blur(5px);
             color: var(--cream);
-            padding: 1rem 2rem;  /* Minimal padding */
+            padding: 1rem 2rem;
             text-align: center;
             margin-top: 2rem;
-            font-size: 0.9rem;   /* Smaller text overall */
+            font-size: 0.9rem;
         }
 
         .footer-content {
@@ -369,7 +372,7 @@
 
         .footer-content p {
             margin-bottom: 0.2rem;
-            line-height: 1.4;  /* Tighter line height */
+            line-height: 1.4;
         }
 
         .footer-content p:first-child {
@@ -379,9 +382,9 @@
         }
 
         .footer-content p:last-child {
-            margin-top: 0.5rem;  /* Space above copyright */
-            font-size: 0.8rem;   /* Smaller copyright text */
-            opacity: 0.8;        /* Slightly faded */
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            opacity: 0.8;
         }
 
         /* Responsive Design */
@@ -407,16 +410,12 @@
                 display: flex;
             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
             .hero-content p {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
             }
-
-            .about-content {
-                grid-template-columns: 1fr;
+            
+            .hero-content p:last-of-type {
+                font-size: 1.2rem;
             }
 
             .video-grid {
@@ -426,80 +425,20 @@
             .section-container {
                 padding: 2rem;
             }
-        }
-        /* Magazine-style About section */
-        .about-magazine {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-        }
 
-        .about-row {
-            display: grid;
-            grid-template-columns: 2fr 1fr;  /* Text takes 2/3, image takes 1/3 */
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .about-row.reverse {
-            grid-template-columns: 1fr 2fr;  /* For second row: image takes 1/3, text takes 2/3 */
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .about-image-top,
-        .about-image-bottom {
-            position: relative;
-        }
-
-        .about-img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .about-img:hover {
-            transform: scale(1.02);
-        }
-
-        /* Optional: Add a slight offset to make it more magazine-like */
-        .about-image-top {
-            margin-top: 2rem;
-        }
-
-        .about-image-bottom {
-            margin-bottom: 2rem;
-        }
-
-        /* Responsive design for mobile */
-        @media (max-width: 768px) {
-            .about-row,
-            .about-row.reverse {
-                grid-template-columns: 1fr;  /* Stack on mobile */
-                gap: 1.5rem;
-            }
-    
+            /* Mobile styles for about section */
             .about-image-top,
             .about-image-bottom {
-                margin: 1rem 0;
-                max-width: 80%;
-                margin-left: auto;
-                margin-right: auto;
+                float: none;
+                width: 80%;
+                margin: 20px auto;
+                display: block;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Fixed Background - this stays visible through everything -->
+    <!-- Fixed Background -->
     <div class="site-background"></div>
 
     <!-- Navigation -->
@@ -520,10 +459,8 @@
     <section id="home">
         <div class="hero">
             <div class="hero-content">
-                 <!-- <h2>7 Songs</h2> -->
                 <p>“Your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it.”</p>
                 <p>~ Rumi</p>
-                <!-- <p>Experience deep healing through the power of vibrational sound. Restore balance, reduce stress, and find your inner harmony.</p> -->
                 <a href="#contact" class="cta-button">Book Your Session</a>
             </div>
         </div>
@@ -550,49 +487,51 @@
         </div>
     </section>
 
-    <!-- About Page Section -->
+    <!-- About Page Section - Fixed with proper text wrapping -->
     <section id="about" class="content-section">
-    <div class="section-container">
-        <h2 class="section-title">About Us</h2>
-        
-        <div class="about-magazine">
-            <!-- First row with image offset to right -->
-            <div class="about-row">
+        <div class="section-container">
+            <h2 class="section-title">About Us</h2>
+            
+            <div class="about-magazine">
+                <!-- Top image floated right -->
+                <div class="about-image-top">
+                    <img src="JKP @ Wooten Woods.jpg" alt="JKP at Wooten Woods" class="about-img">
+                </div>
+                
+                <!-- All text flows continuously around images -->
                 <div class="about-text">
                     <h3>A Musician's Approach...</h3>
                     <p>Hello and welcome to 7 Songs Meditation & Sound Therapy!</p>
                     <p>My name is J. Kirk Plunkett, and I am the owner/founder of 7 Songs.  I began my healing journey at the age of 13, when I first picked up the bass guitar.  I guess you could say I was a troubled teen… and I had been through many programs and tried many things to curb my rebellious tendencies.  And despite the allure of the meditations I learned when I was 12 from a rather eclectic counselor and having played both trumpet and guitar since 11, picking up the bass guitar at age 13 was the first time I really felt like I had a place on this earth.  And thus my healing journey begun.</p>
+                    
                     <p>Music has taken me places I never dreamed I would be… and through the many adventures, I discovered that my passion for being a touring musician was out weighted by my desire to be a close father to my first child in the year 2000.  The blues clubs kept me relatively busy and there was studio work to help pay the bills.  Through the ups and downs of my own life, I have been forced to recognize areas within myself were personal growth was vital for my survival… and in many situations, music was the therapy that I looked to to carry me forward.</p>
+                    
                     <p>Its carried me through the worst of times, but has also provided me with some amazing opportunities.  Amongst helping me to discover my value and self worth in my late teens, in my early forties music is still helping me to redefine who I am and showing me news ways to bring my gifts to the world.</p>
+                    
                     <p>In the summer of 2023, I was blessed to attend a music camp near Nashville, TN, Wooten Woods.  It was the second time that summer that I was able to grace the camp and learn from the world renowned bassist Victor Wooten.  However, this camp was different… the camp was titled The Spirit of Music, with the emphasis on Spirit.  The camp explored themes of spirituality and explored the concepts around how musicians can positively affect people and the environment around them with their instruments and voices.  I had two profound experiences during this 5 day journey of the mind… but what I took home would be so much more.</p>
+                    
+                    <!-- Bottom image floated left - embedded in text -->
+                    <div class="about-image-bottom">
+                        <img src="Tibetan Bowls.jpg" alt="Tibetan singing bowls" class="about-img">
                     </div>
-                <div class="about-image-top">
-                    <img src="JKP @ Wooten Woods.jpg" alt="Sound therapy session" class="about-img">
-                </div>
-            </div>
-            
-            <!-- Second row with image offset to left -->
-            <div class="about-row reverse">
-                <div class="about-text">
+                    
                     <p>Each day of camp, we did a morning and evening meditation.  One of the other campers had brought a small Himalayan Singing Bowl with them and was asked to sound the bowl one morning leading us into meditation.  The sound was mesmerizing.  I was completely enamored with the sound of this bowl...  and that night, as I lay in my tent neglecting sleep, I found myself on my phone, scouring the internet for a bowl of my own.</p>
+                    
                     <p>The second experience was my own very first sound healing experience.  One of the instructors is therapeutic sound pioneer Eileen Day McKusick.  Eileen has been a leader in the field and blurs the lines between the scientific and the spiritual worlds in her books Tuning the Human Biofield and Electric Body, Electric Health.  I was lucky enough to be selected for an on-stage demonstration.  Eileen had asked if there was anyone who had chronic pain in their body… Several years earlier, I had injured my back by falling into a stage after a show.  This injury had led to several other chronic issues, one of which was the constant pain under my left shoulder blade.  It had made it difficult to play my instrument, as holding the strap on that shoulder for any duration of time was rather painful.  Sitting while performing was my only option.</p>
-                    <p>During our time on stage, Eileen was able to articulate the areas in my biofield that were contributing to the pain in my left shoulder.  By using tuning forks and years of practitioner’s experience, she was able to move blocked energy and broke an emotional dam that had been building up for years… I sobbed and felt nothing but love and acceptance.  It was within the hours after that session that I realized music had again saved my life and it was my job to now take this knowledge and pay it forward.</p>
+                    
+                    <p>During our time on stage, Eileen was able to articulate the areas in my biofield that were contributing to the pain in my left shoulder.  By using tuning forks and years of practitioner's experience, she was able to move blocked energy and broke an emotional dam that had been building up for years… I sobbed and felt nothing but love and acceptance.  It was within the hours after that session that I realized music had again saved my life and it was my job to now take this knowledge and pay it forward.</p>
+                    
                     <p>Today, my shoulder is pain free and I have been pursuing certification in Sound Therapy and Sound Healing.  I am honored to have been called to this modality of the healing arts and look forward to sharing my gifts with you.</p>
+                    
                     <p>In resonance,</p>
                     <p>J. Kirk Plunkett</p>
-                    <!-- <p>Founded in 2018, 7 Songs brings ancient healing traditions to modern wellness. Our certified sound therapists combine years of experience in music therapy, meditation, and holistic health to create transformative healing experiences.</p>
-                    <p>We believe in the profound power of vibration to restore balance to mind, body, and spirit. Each session is carefully crafted to meet you where you are on your wellness journey.</p>
-                    <p>Our practitioners are certified by the Sound Healing Association with advanced training in therapeutic sound techniques, ensuring you receive the highest quality care in a safe, nurturing environment.</p> -->
+                    
                     <p style="margin-top: 2rem;"><strong>Ready to begin your healing journey?</strong></p>
                     <a href="#contact" class="cta-button" style="margin-top: 1rem;">Book Your Session</a>
                 </div>
-                <div class="about-image-bottom">
-                    <img src="Tibetan Bowls.jpg" alt="Sound healing instruments" class="about-img">
-                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Videos Section -->
     <section id="videos" class="content-section">
@@ -621,7 +560,6 @@
         <div class="section-container">
             <h2 class="section-title">Book Your Session</h2>
             <div class="scheduler-container">
-                <!-- Acuity Scheduling Embed Code -->
                 <iframe src="https://app.acuityscheduling.com/schedule.php?owner=YOUR_ACUITY_ID" 
                         width="100%" 
                         height="800" 
@@ -636,15 +574,14 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <p style="font-size: 1.5rem; margin-bottom: 1rem;">7 Songs: Meditation & Sound Therapy</p>
-            <p style="margin-bottom: 0.5rem;">123 Wellness Way • San Francisco, CA 94105</p>
-            <p style="margin-bottom: 0.5rem;">(555) 123-4567 • hello@7songs.com</p>
-            <p style="margin-top: 2rem;">&copy; 2024 7 Songs. All rights reserved.</p>
+            <p>7 Songs: Meditation & Sound Therapy</p>
+            <p>123 Wellness Way • San Francisco, CA 94105</p>
+            <p>(555) 123-4567 • hello@7songs.com</p>
+            <p>&copy; 2024 7 Songs. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
@@ -652,14 +589,12 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
         });
 
-        // Active navigation highlighting
         const sections = document.querySelectorAll('section[id]');
         const navItems = document.querySelectorAll('.nav-links a');
 
@@ -681,7 +616,6 @@
             });
         });
 
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
