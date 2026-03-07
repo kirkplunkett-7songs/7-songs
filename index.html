@@ -53,16 +53,25 @@
             pointer-events: none;
         }
 
-        /* Navigation - slightly transparent */
+        /* Navigation - extra small */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             background-color: rgba(139, 30, 30, 0.9);
-            padding: 1rem 0;
+            padding: 0.3rem 0;  /* Minimal padding */
             z-index: 1000;
             backdrop-filter: blur(5px);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.3rem;  /* Smaller logo */
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;  /* Smaller text */
+            padding: 0.2rem 0;
         }
 
         .nav-container {
