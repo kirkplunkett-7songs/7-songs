@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7 Songs</title>
+    <title>7 Songs | Meditation & Sound Therapy</title>
     
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="shortcut icon" href="favicon.ico">
@@ -41,7 +41,6 @@
             background-color: var(--deep-red);
         }
 
-        /* Fixed background that stays in place */
         .site-background {
             position: fixed;
             top: 0;
@@ -57,7 +56,6 @@
             pointer-events: none;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -126,7 +124,6 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
         .hero {
             position: relative;
             height: 100vh;
@@ -184,7 +181,6 @@
             box-shadow: 0 5px 15px rgba(139, 30, 30, 0.3);
         }
 
-        /* Content sections */
         .content-section {
             position: relative;
             background-color: transparent;
@@ -201,18 +197,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        #about .section-container {
-            background-color: rgba(255, 255, 255, 0.9);
-        }
-
-        #videos .section-container {
-            background-color: rgba(245, 240, 230, 0.9);
-        }
-
-        #contact .section-container {
-            background-color: rgba(255, 255, 255, 0.9);
-        }
-
         .section-title {
             font-size: 2.5rem;
             color: var(--deep-red);
@@ -223,7 +207,6 @@
             text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
         }
 
-       /* Services Grid - Fixed for mobile */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -243,7 +226,6 @@
             width: 100%;
             box-sizing: border-box;
             word-wrap: break-word;
-            overflow-wrap: break-word;
         }
 
         .service-card:hover {
@@ -255,13 +237,7 @@
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
-        
-        .service-card p {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
 
-        /* Video Grid */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -287,13 +263,12 @@
             border: none;
         }
 
-        /* ===== MAGAZINE STYLE ABOUT SECTION (UPDATED) ===== */
+        /* Magazine style about section */
         .about-magazine {
             width: 100%;
             overflow: visible;
         }
 
-        /* Top image - floated right */
         .about-image-top {
             float: right;
             width: 300px;
@@ -301,7 +276,6 @@
             position: relative;
         }
 
-        /* Bottom image - floated left */
         .about-image-bottom {
             float: left;
             width: 280px;
@@ -323,7 +297,6 @@
             transform: scale(1.02);
         }
 
-        /* Text styles */
         .about-text {
             font-size: 1.1rem;
             line-height: 1.8;
@@ -342,102 +315,57 @@
             letter-spacing: 1px;
         }
 
-        /* Clear floats after the section */
         .about-magazine::after {
             content: "";
             display: table;
             clear: both;
         }
 
-        /* Contact/Scheduler */
-        .scheduler-container {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            min-height: 700px;
-            backdrop-filter: blur(2px);
-        }
-
-        iframe {
-            border-radius: 8px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: rgba(107, 22, 22, 0.85);
-            backdrop-filter: blur(5px);
-            color: var(--cream);
-            padding: 1rem 2rem;
-            text-align: center;
-            margin-top: 2rem;
-            font-size: 0.9rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: transparent;
-            padding: 0;
-            box-shadow: none;
-        }
-
-        .footer-content p {
-            margin-bottom: 0.2rem;
-            line-height: 1.4;
-        }
-
-        .footer-content p:first-child {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-            font-weight: 400;
-        }
-
-        .footer-content p:last-child {
-            margin-top: 0.5rem;
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-
-        /* Events Section Styles */
+        /* Event Cards Styling */
         .event-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
             overflow: hidden;
             margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-4px);
         }
         
         .event-header {
             background: linear-gradient(135deg, var(--deep-red) 0%, var(--deep-red-dark) 100%);
-            padding: 1.5rem;
+            padding: 1.8rem;
             display: flex;
-            gap: 1.5rem;
+            gap: 1.8rem;
             align-items: center;
             flex-wrap: wrap;
         }
         
         .event-date-box {
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            padding: 0.75rem 1.25rem;
+            border-radius: 16px;
+            padding: 0.9rem 1.4rem;
             text-align: center;
-            min-width: 80px;
+            min-width: 95px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.2);
         }
         
         .event-month {
             display: block;
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--deep-red);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
         
         .event-day {
             display: block;
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 2.2rem;
+            font-weight: 800;
             color: var(--deep-red);
             line-height: 1;
         }
@@ -447,11 +375,11 @@
         }
         
         .event-title {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             color: white;
-            margin-bottom: 0.5rem;
-            font-weight: 400;
-            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
         
         .event-meta {
@@ -463,59 +391,37 @@
         .event-meta span {
             color: rgba(255, 255, 255, 0.9);
             font-size: 0.9rem;
+            font-weight: 500;
         }
         
         .event-details {
-            padding: 1.5rem;
+            padding: 2rem;
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 2rem;
         }
         
-        .event-description h4 {
-            color: var(--deep-red);
-            margin-top: 1rem;
-            margin-bottom: 0.75rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-        
-        .event-description h4:first-of-type {
-            margin-top: 0;
-        }
-        
-        .event-description p {
-            margin-bottom: 1rem;
+        .event-description-text {
+            color: #2c2c2c;
             line-height: 1.7;
         }
         
-        .event-features {
-            list-style: none;
-            padding: 0;
+        .event-description-text p {
             margin-bottom: 1rem;
-        }
-        
-        .event-features li {
-            padding: 0.35rem 0;
-            color: #333;
-            font-size: 0.95rem;
         }
         
         .event-pricing {
-            background: rgba(139, 30, 30, 0.05);
-            padding: 1.5rem;
-            border-radius: 12px;
+            background: rgba(139, 30, 30, 0.08);
+            padding: 1.8rem;
+            border-radius: 20px;
             text-align: center;
             align-self: start;
-        }
-        
-        .price-box {
-            margin-bottom: 1rem;
+            border: 1px solid rgba(139, 30, 30, 0.2);
         }
         
         .price-amount {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 2.6rem;
+            font-weight: 800;
             color: var(--deep-red);
             display: block;
         }
@@ -525,108 +431,140 @@
             color: #666;
         }
         
-        .early-bird {
-            color: #2c7a2c;
-            font-weight: 500;
-            margin: 0.5rem 0;
-        }
-        
         .capacity {
             font-size: 0.85rem;
             color: #666;
-            margin-top: 0.5rem;
+            margin-top: 0.75rem;
+            font-weight: 500;
         }
         
         .registration-section {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 16px;
-            padding: 1.5rem;
+            background: rgba(255, 248, 240, 0.95);
+            border-radius: 20px;
+            padding: 1.8rem;
             margin-top: 1rem;
+            border-left: 5px solid var(--deep-red);
         }
         
         .registration-section h3 {
             color: var(--deep-red);
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 0.5rem;
         }
         
         .registration-section p {
-            margin-bottom: 1rem;
-            color: #555;
+            margin-bottom: 1.2rem;
+            color: #444;
         }
         
         .loading-spinner {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem;
             color: var(--deep-red);
+            font-size: 1.2rem;
         }
         
         .no-events-message {
             text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 16px;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
         }
         
         .no-events-message h3 {
             color: var(--deep-red);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.6rem;
         }
         
-        /* Additional events mini grid */
         .additional-events {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             padding-top: 2rem;
-            border-top: 1px solid rgba(0,0,0,0.1);
+            border-top: 2px dashed rgba(139, 30, 30, 0.3);
         }
         
         .additional-events h3 {
             color: var(--deep-red);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            font-weight: 500;
         }
         
         .events-mini-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
         }
         
         .mini-event-card {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 1rem;
-            border-radius: 8px;
-            transition: transform 0.2s;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.2rem;
+            border-radius: 14px;
+            transition: all 0.2s;
+            border: 1px solid rgba(139, 30, 30, 0.15);
         }
         
         .mini-event-card:hover {
             transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background: white;
         }
         
         .mini-event-date {
             font-size: 0.8rem;
             color: var(--deep-red);
-            font-weight: 600;
-            margin-bottom: 0.3rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
         }
         
         .mini-event-card h4 {
             font-size: 1rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
+            color: #2c1810;
         }
         
         .mini-event-link {
             color: var(--deep-red);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
         }
         
         .mini-event-link:hover {
             text-decoration: underline;
         }
         
-        /* Responsive Design */
+        .scheduler-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            min-height: 700px;
+        }
+        
+        iframe {
+            border-radius: 8px;
+        }
+        
+        footer {
+            background-color: rgba(107, 22, 22, 0.85);
+            backdrop-filter: blur(5px);
+            color: var(--cream);
+            padding: 1rem 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -638,7 +576,7 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: rgba(139, 30, 30, 0.95);
+                background-color: rgba(139, 30, 30, 0.97);
                 flex-direction: column;
                 align-items: center;
                 padding: 2rem;
@@ -657,37 +595,18 @@
                 font-size: 1.2rem;
             }
         
-            /* Fix for service cards on mobile */
             .services-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
-                padding: 0 0.5rem;
             }
             
-            .service-card {
-                width: 100%;
-                max-width: 100%;
-                margin: 0 auto;
-                padding: 1.5rem;
-            }
-            
-            .service-card h3 {
-                font-size: 1.3rem;
-            }
-            
-            .service-card p {
-                font-size: 0.95rem;
-            }
-        
             .video-grid {
                 grid-template-columns: 1fr;
             }
         
             .section-container {
-                padding: 1.5rem;
+                padding: 1.8rem;
             }
         
-            /* Mobile styles for about section */
             .about-image-top,
             .about-image-bottom {
                 float: none;
@@ -696,14 +615,9 @@
                 display: block;
             }
             
-            .about-text {
-                font-size: 1rem;
-                line-height: 1.6;
-            }
-            
             .event-details {
                 grid-template-columns: 1fr;
-                gap: 1rem;
+                gap: 1.2rem;
             }
             
             .event-header {
@@ -712,20 +626,23 @@
             }
             
             .event-title {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
             
             .event-meta {
                 justify-content: center;
             }
+            
+            .event-date-box {
+                min-width: 70px;
+                padding: 0.5rem 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Fixed Background -->
     <div class="site-background"></div>
 
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">7 Songs: Meditation & Sound Therapy</a>
@@ -740,7 +657,6 @@
         </div>
     </nav>
 
-    <!-- Home Page -->
     <section id="home">
         <div class="hero">
             <div class="hero-content">
@@ -751,7 +667,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section class="content-section">
         <div class="section-container">
             <h2 class="section-title">Our Healing Modalities</h2>
@@ -772,325 +687,279 @@
         </div>
     </section>
 
-    <!-- About Page Section - Fixed with proper text wrapping -->
     <section id="about" class="content-section">
         <div class="section-container">
-            
             <div class="about-magazine">
-                <!-- Top image floated right -->
                 <div class="about-image-top">
                     <img src="JKP @ Wooten Woods.jpg" alt="JKP at Wooten Woods" class="about-img">
                 </div>
-                
-                <!-- All text flows continuously around images -->
                 <div class="about-text">
                     <h3>A Musician's Approach...</h3>
                     <p>Hello and welcome to 7 Songs Meditation & Sound Therapy!</p>
-                    <p>My name is J. Kirk Plunkett, and I am the owner/founder of 7 Songs.  I began my healing journey at the age of 13, when I first picked up the bass guitar.  I guess you could say I was a troubled teen… and I had been through many programs and tried many things to curb my rebellious tendencies.  And despite the allure of the meditations I learned when I was 12 from a rather eclectic counselor and having played both trumpet and guitar since 11, picking up the bass guitar at age 13 was the first time I really felt like I had a place on this earth.  And thus my healing journey begun.</p>
-                    
-                    <p>Music has taken me places I never dreamed I would be… and through the many adventures, I discovered that my passion for being a touring musician was out weighted by my desire to be a close father to my first child in the year 2000.  The blues clubs kept me relatively busy and there was studio work to help pay the bills.  Through the ups and downs of my own life, I have been forced to recognize areas within myself were personal growth was vital for my survival… and in many situations, music was the therapy that I looked to to carry me forward.</p>
-                    
-                    <p>Its carried me through the worst of times, but has also provided me with some amazing opportunities.  Amongst helping me to discover my value and self worth in my late teens, in my early forties music is still helping me to redefine who I am and showing me news ways to bring my gifts to the world.</p>
-                    
-                    <p>In the summer of 2023, I was blessed to attend a music camp near Nashville, TN, Wooten Woods.  It was the second time that summer that I was able to grace the camp and learn from the world renowned bassist Victor Wooten.  However, this camp was different… the camp was titled The Spirit of Music, with the emphasis on Spirit.  The camp explored themes of spirituality and explored the concepts around how musicians can positively affect people and the environment around them with their instruments and voices.  I had two profound experiences during this 5 day journey of the mind… but what I took home would be so much more.</p>
-                    
-                    <!-- Bottom image floated left - embedded in text -->
+                    <p>My name is J. Kirk Plunkett, and I am the owner/founder of 7 Songs. I began my healing journey at the age of 13, when I first picked up the bass guitar. I guess you could say I was a troubled teen… and I had been through many programs and tried many things to curb my rebellious tendencies. And despite the allure of the meditations I learned when I was 12 from a rather eclectic counselor and having played both trumpet and guitar since 11, picking up the bass guitar at age 13 was the first time I really felt like I had a place on this earth. And thus my healing journey begun.</p>
+                    <p>Music has taken me places I never dreamed I would be… and through the many adventures, I discovered that my passion for being a touring musician was out weighted by my desire to be a close father to my first child in the year 2000. The blues clubs kept me relatively busy and there was studio work to help pay the bills. Through the ups and downs of my own life, I have been forced to recognize areas within myself were personal growth was vital for my survival… and in many situations, music was the therapy that I looked to to carry me forward.</p>
                     <div class="about-image-bottom">
                         <img src="Tibetan Bowls.jpg" alt="Tibetan singing bowls" class="about-img">
                     </div>
-                    
-                    <p>Each day of camp, we did a morning and evening meditation.  One of the other campers had brought a small Himalayan Singing Bowl with them and was asked to sound the bowl one morning leading us into meditation.  The sound was mesmerizing.  I was completely enamored with the sound of this bowl...  and that night, as I lay in my tent neglecting sleep, I found myself on my phone, scouring the internet for a bowl of my own.</p>
-                    
-                    <p>The second experience was my own very first sound healing experience.  One of the instructors is therapeutic sound pioneer Eileen Day McKusick.  Eileen has been a leader in the field and blurs the lines between the scientific and the spiritual worlds in her books Tuning the Human Biofield and Electric Body, Electric Health.  I was lucky enough to be selected for an on-stage demonstration.  Eileen had asked if there was anyone who had chronic pain in their body… Several years earlier, I had injured my back by falling into a stage after a show.  This injury had led to several other chronic issues, one of which was the constant pain under my left shoulder blade.  It had made it difficult to play my instrument, as holding the strap on that shoulder for any duration of time was rather painful.  Sitting while performing was my only option.</p>
-                    
-                    <p>During our time on stage, Eileen was able to articulate the areas in my biofield that were contributing to the pain in my left shoulder.  By using tuning forks and years of practitioner's experience, she was able to move blocked energy and broke an emotional dam that had been building up for years… I sobbed and felt nothing but love and acceptance.  It was within the hours after that session that I realized music had again saved my life and it was my job to now take this knowledge and pay it forward.</p>
-                    
-                    <p>Today, my shoulder is pain free and I have been pursuing certification in Sound Therapy and Sound Healing.  I am honored to have been called to this modality of the healing arts and look forward to sharing my gifts with you.</p>
-                    
-                    <p>In resonance,</p>
-                    <p>J. Kirk Plunkett</p>
-                    
-                    <p style="margin-top: 2rem;"><strong>Ready to begin your healing journey?</strong></p>
+                    <p>In the summer of 2023, I was blessed to attend a music camp near Nashville, TN, Wooten Woods. It was the second time that summer that I was able to grace the camp and learn from the world renowned bassist Victor Wooten. However, this camp was different… the camp was titled The Spirit of Music, with the emphasis on Spirit. The camp explored themes of spirituality and explored the concepts around how musicians can positively affect people and the environment around them with their instruments and voices. I had two profound experiences during this 5 day journey of the mind… but what I took home would be so much more.</p>
+                    <p>Each day of camp, we did a morning and evening meditation. One of the other campers had brought a small Himalayan Singing Bowl with them and was asked to sound the bowl one morning leading us into meditation. The sound was mesmerizing. I was completely enamored with the sound of this bowl... and that night, as I lay in my tent neglecting sleep, I found myself on my phone, scouring the internet for a bowl of my own.</p>
+                    <p>Today, my shoulder is pain free and I have been pursuing certification in Sound Therapy and Sound Healing. I am honored to have been called to this modality of the healing arts and look forward to sharing my gifts with you.</p>
+                    <p>In resonance,<br>J. Kirk Plunkett</p>
                     <a href="#contact" class="cta-button" style="margin-top: 1rem;">Book Your Session</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Videos Section -->
     <section id="videos" class="content-section">
         <div class="section-container">
             <h2 class="section-title">Experience Sound Healing</h2>
             <p style="text-align: center; margin-bottom: 3rem;">Watch our private video collection to experience the power of sound therapy</p>
             <div class="video-grid">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/ao-y4p4IuK0" title="Sound Healing Session 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/JTdntEST-wo" title="Sound Healing Session 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/d1ee7kq9-yI" title="Sound Healing Session 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/eeLSxwrfiOc" title="Sound Healing Session 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/ao-y4p4IuK0" title="Sound Healing Session 1" allowfullscreen></iframe></div>
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/JTdntEST-wo" title="Sound Healing Session 2" allowfullscreen></iframe></div>
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/d1ee7kq9-yI" title="Sound Healing Session 3" allowfullscreen></iframe></div>
+                <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/eeLSxwrfiOc" title="Sound Healing Session 4" allowfullscreen></iframe></div>
             </div>
         </div>
     </section>
 
-    <!-- Events Section - DYNAMIC from Eventbrite -->
+    <!-- DYNAMIC PUBLIC SOUND BATH EVENTS SECTION -->
     <section id="events" class="content-section">
         <div class="section-container">
             <h2 class="section-title">Public Sound Bath Events</h2>
             <div id="eventbrite-dynamic-content">
                 <div class="loading-spinner">
-                    <p>Loading upcoming events...</p>
+                    <p>✨ Loading sacred sound journeys... ✨</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Contact/Scheduler Section -->
     <section id="contact" class="content-section">
         <div class="section-container">
             <h2 class="section-title">Book Your Session</h2>
             <div class="scheduler-container">
-                <iframe src="https://app.acuityscheduling.com/schedule.php?owner=38656930" 
-                        width="100%" 
-                        height="800" 
-                        frameborder="0" 
-                        scrolling="auto">
-                </iframe>
+                <iframe src="https://app.acuityscheduling.com/schedule.php?owner=38656930" width="100%" height="800" frameborder="0" scrolling="auto"></iframe>
                 <script src="https://embed.acuityscheduling.com/embed/button/38656930.js" type="text/javascript"></script>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <p>7 Songs: Meditation & Sound Therapy</p>
             <p>114 Shadow Lake Drive SW • Lilburn, GA 30047</p>
             <p>(678) 805-7720 • 7songsmeditation@gmail.com</p>
-            <p>&copy; 2024 7 Songs. All rights reserved.</p>
+            <p>&copy; 2025 7 Songs. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+        }
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
+            link.addEventListener('click', () => navLinks.classList.remove('active'));
         });
 
+        // Smooth scroll + active nav
         const sections = document.querySelectorAll('section[id]');
         const navItems = document.querySelectorAll('.nav-links a');
-
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
+                if (pageYOffset >= sectionTop - 200) current = section.getAttribute('id');
             });
-
             navItems.forEach(item => {
                 item.classList.remove('active');
-                if (item.getAttribute('href') === `#${current}`) {
-                    item.classList.add('active');
-                }
+                if (item.getAttribute('href') === `#${current}`) item.classList.add('active');
             });
         });
-
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // ========== EVENTBRITE DYNAMIC CONTENT ==========
+        // ========== EVENTBRITE DYNAMIC INTEGRATION ==========
         const EVENTBRITE_TOKEN = 'XFSAP35WPDQ34OBQ6PYS';
+        const USER_ID = '372625042593';
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function formatPrice(event) {
+            if (event.ticket_classes && event.ticket_classes.length > 0) {
+                const ticket = event.ticket_classes[0];
+                if (ticket.cost && ticket.cost.major !== undefined) {
+                    return `$${ticket.cost.major}.${ticket.cost.minor || '00'}`;
+                }
+                if (ticket.free === true) return 'FREE';
+            }
+            return 'FREE';
+        }
 
         async function fetchEventbriteEvents() {
             const container = document.getElementById('eventbrite-dynamic-content');
+            if (!container) return;
             
             try {
-                // Fetch live events from Eventbrite
-                const response = await fetch('https://www.eventbriteapi.com/v3/users/me/events/?status=live', {
-                    headers: {
-                        'Authorization': `Bearer ${EVENTBRITE_TOKEN}`
-                    }
+                // Fetch live events for the specific user
+                const response = await fetch(`https://www.eventbriteapi.com/v3/users/${USER_ID}/events/?status=live`, {
+                    headers: { 'Authorization': `Bearer ${EVENTBRITE_TOKEN}` }
                 });
-
-                if (!response.ok) {
-                    throw new Error(`API Error: ${response.status}`);
-                }
-
+                
+                if (!response.ok) throw new Error(`API error ${response.status}`);
                 const data = await response.json();
                 const now = new Date();
                 
-                // Filter to only show upcoming/future events and sort by date
-                const upcomingEvents = data.events
+                const upcomingEvents = (data.events || [])
                     .filter(event => new Date(event.start.utc) > now)
                     .sort((a, b) => new Date(a.start.utc) - new Date(b.start.utc));
-
+                
                 if (upcomingEvents.length === 0) {
                     container.innerHTML = `
                         <div class="no-events-message">
-                            <h3>No Upcoming Events</h3>
-                            <p>Check back soon for new sound healing workshops and events!</p>
-                            <p style="margin-top: 1rem;">Want to be notified? <a href="#contact" style="color: var(--deep-red);">Contact us</a> to join our mailing list.</p>
+                            <h3>🌿 No Upcoming Public Events</h3>
+                            <p>New sound bath journeys are being scheduled. Please check back soon or join our mailing list.</p>
+                            <p style="margin-top: 1rem;"><a href="#contact" style="color: var(--deep-red); font-weight: 600;">Contact us</a> to stay updated.</p>
                         </div>
                     `;
                     return;
                 }
-
-                // Display the main event (most recent upcoming)
-                displayMainEvent(upcomingEvents[0], container);
                 
-                // Display additional events if there are more
+                // Render primary event + optional additional events
+                renderPrimaryEvent(upcomingEvents[0], container);
                 if (upcomingEvents.length > 1) {
-                    displayAdditionalEvents(upcomingEvents.slice(1), container);
+                    renderAdditionalEvents(upcomingEvents.slice(1), container);
                 }
-
             } catch (error) {
-                console.error('Error fetching Eventbrite events:', error);
+                console.error('Eventbrite fetch error:', error);
                 container.innerHTML = `
                     <div class="no-events-message">
-                        <h3>Unable to Load Events</h3>
-                        <p>Please check back later or <a href="#contact" style="color: var(--deep-red);">contact us</a> for upcoming events.</p>
+                        <h3>🔮 Events Loading Unavailable</h3>
+                        <p>We're experiencing a moment of technical stillness. Please refresh or reach out directly.</p>
+                        <p><a href="#contact" style="color: var(--deep-red);">Contact us</a> for upcoming sound baths.</p>
                     </div>
                 `;
             }
         }
-
-        function displayMainEvent(event, container) {
+        
+        function renderPrimaryEvent(event, container) {
             const eventDate = new Date(event.start.utc);
-            const eventEndDate = event.end ? new Date(event.end.utc) : null;
+            const month = eventDate.toLocaleString('default', { month: 'short' }).toUpperCase();
+            const day = eventDate.getDate();
+            const formattedDate = eventDate.toLocaleDateString(undefined, { weekday: 'short', month: 'long', day: 'numeric', year: 'numeric' });
+            const formattedTime = eventDate.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
             
-            const dateOptions = { month: 'short', day: 'numeric', year: 'numeric' };
-            const timeOptions = { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' };
+            let locationText = '📍 Location details provided after registration';
+            if (event.venue && event.venue.name) locationText = `📍 ${event.venue.name}`;
+            else if (event.online_event) locationText = '🌐 Online Event (link sent after booking)';
             
-            // Get ticket price info
-            let priceText = 'FREE';
-            if (event.ticket_classes && event.ticket_classes.length > 0 && event.ticket_classes[0].cost) {
-                priceText = `$${event.ticket_classes[0].cost.major}.${event.ticket_classes[0].cost.minor}`;
-            }
+            const priceText = formatPrice(event);
+            const descriptionHtml = event.description?.html || event.description?.text || '<p>Immerse yourself in healing frequencies. A transformative sound bath meditation awaits.</p>';
             
-            // Get location info
-            let locationText = 'Location TBD';
-            if (event.venue && event.venue.name) {
-                locationText = `📍 ${event.venue.name}`;
-            } else if (event.online_event) {
-                locationText = '🌐 Online Event';
-            }
+            const eventId = event.id;
+            const widgetContainerId = `eb-widget-${eventId}`;
             
             const html = `
                 <div class="event-card">
                     <div class="event-header">
                         <div class="event-date-box">
-                            <span class="event-month">${eventDate.toLocaleString('default', { month: 'short' }).toUpperCase()}</span>
-                            <span class="event-day">${eventDate.getDate()}</span>
+                            <span class="event-month">${month}</span>
+                            <span class="event-day">${day}</span>
                         </div>
                         <div class="event-title-box">
                             <h3 class="event-title">${escapeHtml(event.name.text)}</h3>
                             <div class="event-meta">
                                 <span>${locationText}</span>
-                                <span>🕒 ${eventDate.toLocaleDateString([], dateOptions)} at ${eventDate.toLocaleTimeString([], timeOptions)}</span>
+                                <span>🕊️ ${formattedDate} at ${formattedTime}</span>
                             </div>
                         </div>
                     </div>
-                    
                     <div class="event-details">
-                        <div class="event-description">
-                            ${event.description ? `<div class="event-description-text">${event.description.html || event.description.text || '<p>Join us for this transformative sound healing experience.</p>'}</div>` : '<p>Join us for this transformative sound healing experience.</p>'}
+                        <div class="event-description-text">
+                            ${descriptionHtml}
                         </div>
-                        
                         <div class="event-pricing">
-                            <div class="price-box">
-                                <span class="price-amount">${priceText}</span>
-                                <span class="price-note">per person</span>
-                            </div>
-                            ${event.capacity ? `<p class="capacity">Limited to ${event.capacity} participants</p>` : ''}
+                            <div class="price-amount">${priceText}</div>
+                            <div class="price-note">per person</div>
+                            ${event.capacity ? `<div class="capacity">🎟️ Limited to ${event.capacity} participants</div>` : '<div class="capacity">✨ Reserve your sacred space</div>'}
                         </div>
                     </div>
                 </div>
-                
                 <div class="registration-section">
-                    <h3>Secure Your Spot</h3>
-                    <p>Complete your registration below to receive event details and instructions.</p>
-                    <div id="eventbrite-widget-${event.id}"></div>
+                    <h3>🎵 Reserve Your Mat</h3>
+                    <p>Complete your registration below to secure your spot. You'll receive an email confirmation with all details.</p>
+                    <div id="${widgetContainerId}"></div>
                 </div>
-                <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"><\/script>
-                <script>
-                    window.EBWidgets.createWidget({
-                        widgetType: 'checkout',
-                        eventId: '${event.id}',
-                        iframeContainerId: 'eventbrite-widget-${event.id}',
-                        iframeContainerHeight: 450,
-                        onOrderComplete: function() { 
-                            alert('Thank you for registering! Check your email for confirmation.'); 
-                        }
-                    });
-                <\/script>
             `;
             
             container.innerHTML = html;
+            
+            // Load Eventbrite widget script and create checkout widget
+            if (window.EBWidgets) {
+                createWidget(eventId, widgetContainerId);
+            } else {
+                const script = document.createElement('script');
+                script.src = 'https://www.eventbrite.com/static/widgets/eb_widgets.js';
+                script.onload = () => createWidget(eventId, widgetContainerId);
+                document.body.appendChild(script);
+            }
         }
         
-        function displayAdditionalEvents(events, container) {
+        function createWidget(eventId, containerId) {
+            if (!window.EBWidgets) return;
+            try {
+                window.EBWidgets.createWidget({
+                    widgetType: 'checkout',
+                    eventId: eventId,
+                    iframeContainerId: containerId,
+                    iframeContainerHeight: 450,
+                    onOrderComplete: function() {
+                        alert('✨ Thank you! Your registration is confirmed. A confirmation email is on its way. ✨');
+                    }
+                });
+            } catch (err) {
+                console.warn('Widget creation error:', err);
+                const fallback = document.getElementById(containerId);
+                if (fallback) fallback.innerHTML = `<p style="color: var(--deep-red);"><a href="https://www.eventbrite.com/e/${eventId}" target="_blank" style="color: var(--deep-red); font-weight:bold;">Click here to complete your ticket purchase →</a></p>`;
+            }
+        }
+        
+        function renderAdditionalEvents(events, container) {
             let additionalHtml = `
                 <div class="additional-events">
-                    <h3>More Upcoming Events</h3>
+                    <h3>🌸 More Sacred Sound Journeys</h3>
                     <div class="events-mini-grid">
             `;
-            
             events.forEach(event => {
                 const eventDate = new Date(event.start.utc);
+                const dateStr = eventDate.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
                 additionalHtml += `
                     <div class="mini-event-card">
-                        <div class="mini-event-date">${eventDate.toLocaleDateString()}</div>
+                        <div class="mini-event-date">📅 ${dateStr}</div>
                         <h4>${escapeHtml(event.name.text)}</h4>
-                        <a href="${event.url}" target="_blank" class="mini-event-link">View Event →</a>
+                        <a href="${event.url}" target="_blank" class="mini-event-link">View & Book →</a>
                     </div>
                 `;
             });
-            
-            additionalHtml += `
-                    </div>
-                </div>
-            `;
-            
-            // Append to existing content
-            const existingHtml = container.innerHTML;
-            container.innerHTML = existingHtml + additionalHtml;
+            additionalHtml += `</div></div>`;
+            container.insertAdjacentHTML('beforeend', additionalHtml);
         }
         
-        // Helper function to escape HTML to prevent XSS
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        // Load events when page loads
+        // Initialize dynamic events on DOM ready
         document.addEventListener('DOMContentLoaded', fetchEventbriteEvents);
     </script>
 </body>
