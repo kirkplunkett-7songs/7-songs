@@ -607,23 +607,31 @@
     <!-- Events Section - Add this after your Videos section -->
     <section id="events" class="content-section">
         <div class="section-container">
-            <h2 class="section-title">Upcoming Workshops & Events</h2>
-            <p style="text-align: center; margin-bottom: 2rem;">Join us for group sound healing experiences and workshops</p>
+            <h2 class="section-title">Upcoming Public Sound Bath Events</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Join us for a group sound healing experiences</p>
             
             <!-- Eventbrite Embedded Checkout -->
-            <div style="min-height: 400px;">
-                <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
-                <script>
-                    window.EBWidgets.createWidget({
-                        widgetType: 'checkout',
-                        eventId: 'YOUR_EVENTBRITE_ID',
-                        modal: true,
-                        modalTriggerElementId: 'eventbrite-widget-trigger',
-                        onOrderComplete: function() {
-                            console.log('Registration complete!');
-                        }
-                    });
-                </script>
+                <div id="eventbrite-widget-container-1984848318752"></div>
+    
+    <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+    
+    <script type="text/javascript">
+        var exampleCallback = function() {
+            console.log('Order complete!');
+        };
+    
+        window.EBWidgets.createWidget({
+            // Required
+            widgetType: 'checkout',
+            eventId: '1984848318752',
+            iframeContainerId: 'eventbrite-widget-container-1984848318752',
+    
+            // Optional
+            iframeContainerHeight: 425,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
+    
+            onOrderComplete: exampleCallback  // Method called when an order has successfully completed
+        });
+    </script>
                 <div style="text-align: center;">
                     <button id="eventbrite-widget-trigger" class="cta-button" style="cursor: pointer;">View Upcoming Events →</button>
                 </div>
