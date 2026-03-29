@@ -810,75 +810,12 @@
 
         // ========== EVENTBRITE DYNAMIC INTEGRATION ==========
         const EVENTBRITE_TOKEN = 'XFSAP35WPDQ34OBQ6PYS';
-        const USER_ID = '372625042593';
         
-        // Track if Eventbrite widget script is loaded
-        let ebWidgetsLoaded = false;
-        
-        function loadEventbriteWidgets() {
-            return new Promise((resolve) => {
-                if (typeof window.EBWidgets !== 'undefined') {
-                    ebWidgetsLoaded = true;
-                    resolve();
-                    return;
-                }
-                
-                const script = document.createElement('script');
-                script.src = 'https://www.eventbrite.com/static/widgets/eb_widgets.js';
-                script.onload = () => {
-                    ebWidgetsLoaded = true;
-                    resolve();
-                };
-                script.onerror = () => {
-                    console.error('Failed to load Eventbrite widgets');
-                    resolve();
-                };
-                document.head.appendChild(script);
-            });
-        }
-        
-        function createEventbriteWidget(eventId, containerId) {
-            if (!ebWidgetsLoaded || typeof window.EBWidgets === 'undefined') {
-                // Try loading widgets then create
-                loadEventbriteWidgets().then(() => {
-                    if (typeof window.EBWidgets !== 'undefined') {
-                        createWidgetInstance(eventId, containerId);
-                    } else {
-                        // Fallback to direct link
-                        showFallbackLink(containerId, eventId);
-                    }
-                });
-            } else {
-                createWidgetInstance(eventId, containerId);
-            }
-        }
-        
-        function createWidgetInstance(eventId, containerId) {
-            try {
-                window.EBWidgets.createWidget({
-                    widgetType: 'checkout',
-                    eventId: eventId,
-                    iframeContainerId: containerId,
-                    iframeContainerHeight: 450,
-                    onOrderComplete: function() {
-                        alert('✨ Thank you! Your registration is confirmed. A confirmation email is on its way. ✨');
-                    }
-                });
-            } catch (err) {
-                console.error('Widget creation error:', err);
-                showFallbackLink(containerId, eventId);
-            }
-        }
-        
-        function showFallbackLink(containerId, eventId) {
-            const container = document.getElementById(containerId);
-            if (container) {
-                container.innerHTML = `
-                    <a href="https://www.eventbrite.com/e/${eventId}" target="_blank" class="cta-button" style="display: inline-block; margin-top: 1rem;">
-                        Purchase Tickets on Eventbrite →
-                    </a>
-                `;
-            }
+        function escapeHtml(str) {
+            if (!str) return '';
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
         }
         
         function formatPrice(event) {
@@ -892,108 +829,37 @@
             return 'FREE';
         }
         
-        function escapeHtml(str) {
-            if (!str) return '';
-            const div = document.createElement('div');
-            div.textContent = str;
-            return div.innerHTML;
+        function createEventbriteWidget(eventId, containerId) {
+            // Load Eventbrite widget script if not loaded
+            if (typeof window.EBWidgets === 'undefined') {
+                const script = document.createElement('script');
+                script.src = 'https://www.eventbrite.com/static/widgets/eb_widgets.js';
+                script.onload = () => {
+                    createWidgetInstance(eventId, containerId);
+                };
+                document.head.appendChild(script);
+            } else {
+                createWidgetInstance(eventId, containerId);
+            }
         }
         
-        function renderEvents(events) {
-            const container = document.getElementById('eventbrite-dynamic-content');
-            if (!container) return;
-            
-            if (!events || events.length === 0) {
-                container.innerHTML = `
-                    <div class="no-events-message">
-                        <h3>🌿 No Upcoming Public Events</h3>
-                        <p>New sound bath journeys are being scheduled. Please check back soon or join our mailing list.</p>
-                        <p style="margin-top: 1rem;"><a href="#contact" style="color: var(--deep-red); font-weight: 600;">Contact us</a> to stay updated.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            let html = '';
-            const primaryEvent = events[0];
-            const additionalEvents = events.slice(1);
-            
-            // Render primary event
-            const eventDate = new Date(primaryEvent.start.utc);
-            const month = eventDate.toLocaleString('default', { month: 'short' }).toUpperCase();
-            const day = eventDate.getDate();
-            const formattedDate = eventDate.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-            const formattedTime = eventDate.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
-            
-            let locationText = '📍 Location details provided after registration';
-            if (primaryEvent.venue && primaryEvent.venue.name) locationText = `📍 ${primaryEvent.venue.name}`;
-            if (primaryEvent.online_event) locationText = '🌐 Online Event (link sent after booking)';
-            
-            const priceText = formatPrice(primaryEvent);
-            const descriptionHtml = primaryEvent.description?.html || primaryEvent.description?.text || '<p>Immerse yourself in healing frequencies. A transformative sound bath meditation awaits.</p>';
-            
-            const widgetContainerId = `eb-widget-${primaryEvent.id}`;
-            
-            html += `
-                <div class="event-card">
-                    <div class="event-header">
-                        <div class="event-date-box">
-                            <span class="event-month">${month}</span>
-                            <span class="event-day">${day}</span>
-                        </div>
-                        <div class="event-title-box">
-                            <h3 class="event-title">${escapeHtml(primaryEvent.name.text)}</h3>
-                            <div class="event-meta">
-                                <span>${locationText}</span>
-                                <span>🕊️ ${formattedDate} at ${formattedTime}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="event-details">
-                        <div class="event-description-text">
-                            ${descriptionHtml}
-                        </div>
-                        <div class="event-pricing">
-                            <div class="price-amount">${priceText}</div>
-                            <div class="price-note">per person</div>
-                            ${primaryEvent.capacity ? `<div class="capacity">🎟️ Limited to ${primaryEvent.capacity} participants</div>` : '<div class="capacity">✨ Reserve your sacred space</div>'}
-                        </div>
-                    </div>
-                </div>
-                <div class="registration-section">
-                    <h3>🎵 Reserve Your Mat</h3>
-                    <p>Complete your registration below to secure your spot. You'll receive an email confirmation with all details.</p>
-                    <div id="${widgetContainerId}" class="eventbrite-widget-container"></div>
-                </div>
-            `;
-            
-            // Render additional events if any
-            if (additionalEvents.length > 0) {
-                html += `
-                    <div class="additional-events">
-                        <h3>🌸 More Sacred Sound Journeys</h3>
-                        <div class="events-mini-grid">
-                `;
-                
-                additionalEvents.forEach(event => {
-                    const eventDateMini = new Date(event.start.utc);
-                    const dateStr = eventDateMini.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
-                    html += `
-                        <div class="mini-event-card">
-                            <div class="mini-event-date">📅 ${dateStr}</div>
-                            <h4>${escapeHtml(event.name.text)}</h4>
-                            <a href="${event.url}" target="_blank" class="mini-event-link">View & Book →</a>
-                        </div>
-                    `;
+        function createWidgetInstance(eventId, containerId) {
+            try {
+                window.EBWidgets.createWidget({
+                    widgetType: 'checkout',
+                    eventId: eventId,
+                    iframeContainerId: containerId,
+                    iframeContainerHeight: 450,
+                    onOrderComplete: function() {
+                        alert('✨ Thank you! Your registration is confirmed. ✨');
+                    }
                 });
-                
-                html += `</div></div>`;
+            } catch (err) {
+                const container = document.getElementById(containerId);
+                if (container) {
+                    container.innerHTML = `<a href="https://www.eventbrite.com/e/${eventId}" target="_blank" class="cta-button" style="display: inline-block;">Purchase Tickets →</a>`;
+                }
             }
-            
-            container.innerHTML = html;
-            
-            // Create widget for primary event
-            createEventbriteWidget(primaryEvent.id, widgetContainerId);
         }
         
         async function fetchEventbriteEvents() {
@@ -1001,8 +867,8 @@
             if (!container) return;
             
             try {
-                // Fetch events from Eventbrite API
-                const response = await fetch(`https://www.eventbriteapi.com/v3/users/${USER_ID}/events/?status=live&expand=venue,ticket_classes`, {
+                // CORRECTED API ENDPOINT - using /me/ instead of user ID
+                const response = await fetch('https://www.eventbriteapi.com/v3/users/me/events/?status=live&expand=venue,ticket_classes', {
                     headers: { 
                         'Authorization': `Bearer ${EVENTBRITE_TOKEN}`,
                         'Content-Type': 'application/json'
@@ -1010,54 +876,95 @@
                 });
                 
                 if (!response.ok) {
-                    throw new Error(`API returned ${response.status}: ${response.statusText}`);
+                    throw new Error(`API returned ${response.status}`);
                 }
                 
                 const data = await response.json();
                 const now = new Date();
                 
-                // Filter to only show upcoming/future events
                 const upcomingEvents = (data.events || [])
-                    .filter(event => {
-                        const eventStart = new Date(event.start.utc);
-                        return eventStart > now;
-                    })
+                    .filter(event => new Date(event.start.utc) > now)
                     .sort((a, b) => new Date(a.start.utc) - new Date(b.start.utc));
                 
                 if (upcomingEvents.length === 0) {
                     container.innerHTML = `
                         <div class="no-events-message">
-                            <h3>🌿 No Upcoming Events at This Time</h3>
-                            <p>New sound bath events are being scheduled. Please check back soon!</p>
-                            <p style="margin-top: 1rem;">Want to be notified? <a href="#contact" style="color: var(--deep-red);">Contact us</a> to join our mailing list.</p>
+                            <h3>🌿 No Upcoming Events</h3>
+                            <p>Check back soon for new sound healing events!</p>
                         </div>
                     `;
                     return;
                 }
                 
-                // Render the events
-                renderEvents(upcomingEvents);
+                // Display events
+                let html = '';
+                upcomingEvents.forEach((event, index) => {
+                    const eventDate = new Date(event.start.utc);
+                    const month = eventDate.toLocaleString('default', { month: 'short' }).toUpperCase();
+                    const day = eventDate.getDate();
+                    const formattedDate = eventDate.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+                    const formattedTime = eventDate.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
+                    
+                    const locationText = event.venue?.name ? `📍 ${event.venue.name}` : '📍 Location details provided after registration';
+                    const priceText = formatPrice(event);
+                    const descriptionHtml = event.description?.html || event.description?.text || '<p>Immerse yourself in healing frequencies. A transformative sound bath meditation awaits.</p>';
+                    
+                    const widgetContainerId = `eb-widget-${event.id}`;
+                    
+                    html += `
+                        <div class="event-card">
+                            <div class="event-header">
+                                <div class="event-date-box">
+                                    <span class="event-month">${month}</span>
+                                    <span class="event-day">${day}</span>
+                                </div>
+                                <div class="event-title-box">
+                                    <h3 class="event-title">${escapeHtml(event.name.text)}</h3>
+                                    <div class="event-meta">
+                                        <span>${locationText}</span>
+                                        <span>🕊️ ${formattedDate} at ${formattedTime}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="event-details">
+                                <div class="event-description-text">
+                                    ${descriptionHtml}
+                                </div>
+                                <div class="event-pricing">
+                                    <div class="price-amount">${priceText}</div>
+                                    <div class="price-note">per person</div>
+                                    ${event.capacity ? `<div class="capacity">🎟️ Limited to ${event.capacity} participants</div>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="registration-section">
+                            <h3>🎵 Reserve Your Mat</h3>
+                            <div id="${widgetContainerId}"></div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+                
+                // Create widgets for each event
+                upcomingEvents.forEach((event, index) => {
+                    const widgetContainerId = `eb-widget-${event.id}`;
+                    createEventbriteWidget(event.id, widgetContainerId);
+                });
                 
             } catch (error) {
-                console.error('Error fetching Eventbrite events:', error);
+                console.error('Error fetching events:', error);
                 container.innerHTML = `
                     <div class="error-message">
-                        <h3>🔮 Having trouble loading events</h3>
-                        <p>Please check back later or visit our <a href="https://www.eventbrite.com/o/7-songs-${USER_ID}" target="_blank" style="color: var(--deep-red);">Eventbrite page</a> directly.</p>
-                        <p style="margin-top: 1rem;">Error: ${error.message}</p>
+                        <h3>Unable to load events</h3>
+                        <p>Please visit our <a href="https://www.eventbrite.com/o/7-songs-372625042593" target="_blank" style="color: var(--deep-red);">Eventbrite page</a> directly.</p>
                     </div>
                 `;
             }
         }
         
-        // Load Eventbrite widgets script first, then fetch events
-        async function init() {
-            await loadEventbriteWidgets();
-            await fetchEventbriteEvents();
-        }
-        
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', init);
+        // Load events when page loads
+        document.addEventListener('DOMContentLoaded', fetchEventbriteEvents);
     </script>
 </body>
 </html>
