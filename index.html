@@ -604,6 +604,34 @@
         </div>
     </section>
 
+    <!-- Events Section - Add this after your Videos section -->
+    <section id="events" class="content-section">
+        <div class="section-container">
+            <h2 class="section-title">Upcoming Workshops & Events</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Join us for group sound healing experiences and workshops</p>
+            
+            <!-- Eventbrite Embedded Checkout -->
+            <div style="min-height: 400px;">
+                <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+                <script>
+                    window.EBWidgets.createWidget({
+                        widgetType: 'checkout',
+                        eventId: 'YOUR_EVENTBRITE_ID',
+                        modal: true,
+                        modalTriggerElementId: 'eventbrite-widget-trigger',
+                        onOrderComplete: function() {
+                            console.log('Registration complete!');
+                        }
+                    });
+                </script>
+                <div style="text-align: center;">
+                    <button id="eventbrite-widget-trigger" class="cta-button" style="cursor: pointer;">View Upcoming Events →</button>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">New events added regularly. Check back often!</p>
+        </div>
+    </section>
+    
     <!-- Contact/Scheduler Section -->
     <section id="contact" class="content-section">
         <div class="section-container">
