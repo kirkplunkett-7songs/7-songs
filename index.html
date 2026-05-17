@@ -322,217 +322,401 @@
             clear: both;
         }
 
-        /* Event Cards Styling */
+        /* ============================
+           EVENT SECTION STYLES
+           ============================ */
+
+        /* Loading state */
+        .loading-spinner {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--deep-red);
+        }
+
+        .loading-orb {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 4px solid rgba(139, 30, 30, 0.15);
+            border-top-color: var(--deep-red);
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-spinner p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--deep-red);
+            opacity: 0.8;
+        }
+
+        /* No events / error states */
+        .no-events-message,
+        .error-message {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            border: 1px solid rgba(139, 30, 30, 0.15);
+        }
+
+        .no-events-message h3 {
+            color: var(--deep-red);
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .no-events-message p {
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .no-events-message a,
+        .error-message a {
+            color: var(--deep-red);
+            font-weight: 600;
+        }
+
+        .error-message {
+            color: #b71c1c;
+        }
+
+        /* Primary event card */
         .event-card {
             background: rgba(255, 255, 255, 0.98);
             border-radius: 20px;
             overflow: hidden;
-            margin-bottom: 2rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-            transition: transform 0.2s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
-        
+
         .event-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
         }
-        
+
         .event-header {
             background: linear-gradient(135deg, var(--deep-red) 0%, var(--deep-red-dark) 100%);
-            padding: 1.8rem;
+            padding: 2rem;
             display: flex;
-            gap: 1.8rem;
+            gap: 2rem;
             align-items: center;
             flex-wrap: wrap;
         }
-        
+
         .event-date-box {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 16px;
-            padding: 0.9rem 1.4rem;
+            padding: 1rem 1.5rem;
             text-align: center;
-            min-width: 95px;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+            min-width: 90px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+            flex-shrink: 0;
         }
-        
+
         .event-month {
             display: block;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 700;
             color: var(--deep-red);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
         }
-        
+
         .event-day {
             display: block;
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--deep-red);
-            line-height: 1;
-        }
-        
-        .event-title-box {
-            flex: 1;
-        }
-        
-        .event-title {
-            font-size: 1.7rem;
-            color: white;
-            margin-bottom: 0.6rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-        
-        .event-meta {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .event-meta span {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        
-        .event-details {
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
-        }
-        
-        .event-description-text {
-            color: #2c2c2c;
-            line-height: 1.7;
-        }
-        
-        .event-description-text p {
-            margin-bottom: 1rem;
-        }
-        
-        .event-pricing {
-            background: rgba(139, 30, 30, 0.08);
-            padding: 1.8rem;
-            border-radius: 20px;
-            text-align: center;
-            align-self: start;
-            border: 1px solid rgba(139, 30, 30, 0.2);
-        }
-        
-        .price-amount {
             font-size: 2.6rem;
             font-weight: 800;
             color: var(--deep-red);
+            line-height: 1;
+            margin: 0.15rem 0;
+        }
+
+        .event-year {
             display: block;
-        }
-        
-        .price-note {
-            font-size: 0.85rem;
-            color: #666;
-        }
-        
-        .capacity {
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 0.75rem;
+            font-size: 0.75rem;
+            color: #888;
             font-weight: 500;
         }
-        
-        .registration-section {
-            background: rgba(255, 248, 240, 0.95);
-            border-radius: 20px;
-            padding: 1.8rem;
-            margin-top: 1rem;
-            border-left: 5px solid var(--deep-red);
+
+        .event-title-box {
+            flex: 1;
+            min-width: 0;
         }
-        
-        .registration-section h3 {
+
+        .event-title {
+            font-size: 1.75rem;
+            color: white;
+            margin-bottom: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .event-meta span {
+            color: rgba(255, 255, 255, 0.88);
+            font-size: 0.92rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Event body: description + pricing side by side */
+        .event-body {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .event-description-text {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .event-description-text p {
+            margin-bottom: 1rem;
+        }
+
+        .event-description-text h1,
+        .event-description-text h2,
+        .event-description-text h3 {
             color: var(--deep-red);
-            font-size: 1.4rem;
+            margin: 1.2rem 0 0.5rem;
+            font-weight: 500;
+        }
+
+        .event-description-text ul,
+        .event-description-text ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Pricing panel */
+        .event-pricing-panel {
+            position: sticky;
+            top: 80px;
+        }
+
+        .pricing-card {
+            background: linear-gradient(160deg, rgba(139,30,30,0.07) 0%, rgba(139,30,30,0.03) 100%);
+            border: 1px solid rgba(139, 30, 30, 0.2);
+            border-radius: 18px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .price-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
             margin-bottom: 0.5rem;
         }
-        
-        .registration-section p {
-            margin-bottom: 1.2rem;
-            color: #444;
-        }
-        
-        .loading-spinner {
-            text-align: center;
-            padding: 3rem;
+
+        .price-amount {
+            font-size: 3rem;
+            font-weight: 800;
             color: var(--deep-red);
-            font-size: 1.2rem;
+            line-height: 1;
+            display: block;
         }
-        
-        .no-events-message {
-            text-align: center;
-            padding: 3rem;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 24px;
+
+        .price-note {
+            font-size: 0.82rem;
+            color: #888;
+            margin-top: 0.3rem;
         }
-        
-        .no-events-message h3 {
+
+        .price-divider {
+            border: none;
+            border-top: 1px solid rgba(139,30,30,0.15);
+            margin: 1.2rem 0;
+        }
+
+        .capacity-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .sold-out-badge {
+            display: inline-block;
+            background: #c62828;
+            color: white;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.3rem 0.9rem;
+            border-radius: 50px;
+            margin-top: 0.75rem;
+        }
+
+        /* Checkout section */
+        .checkout-section {
+            border-top: 1px solid rgba(139, 30, 30, 0.12);
+            padding: 2rem;
+            background: rgba(253, 249, 244, 0.8);
+            border-radius: 0 0 20px 20px;
+        }
+
+        .checkout-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .checkout-header h3 {
             color: var(--deep-red);
-            margin-bottom: 0.8rem;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
         }
-        
-        .error-message {
+
+        .checkout-header .divider-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, rgba(139,30,30,0.3), transparent);
+        }
+
+        .checkout-subtext {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .eb-widget-container {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        .eb-widget-container iframe {
+            display: block;
+            width: 100%;
+            border: none;
+        }
+
+        .checkout-fallback {
             text-align: center;
             padding: 2rem;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 16px;
-            color: #d32f2f;
         }
-        
+
+        .checkout-fallback .cta-button {
+            background-color: var(--deep-red);
+            color: white;
+            border: 2px solid var(--deep-red);
+        }
+
+        .checkout-fallback .cta-button:hover {
+            background-color: var(--deep-red-dark);
+            border-color: var(--deep-red-dark);
+        }
+
+        /* Confirmation state */
+        .checkout-confirmed {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, rgba(139,30,30,0.07), rgba(139,30,30,0.03));
+            border-radius: 16px;
+            border: 1px solid rgba(139,30,30,0.2);
+        }
+
+        .checkout-confirmed .confirm-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .checkout-confirmed h3 {
+            color: var(--deep-red);
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+        }
+
+        .checkout-confirmed p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Additional upcoming events */
         .additional-events {
             margin-top: 2.5rem;
             padding-top: 2rem;
-            border-top: 2px dashed rgba(139, 30, 30, 0.3);
+            border-top: 2px dashed rgba(139, 30, 30, 0.25);
         }
-        
+
         .additional-events h3 {
             color: var(--deep-red);
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             margin-bottom: 1.2rem;
-            font-size: 1.3rem;
-            font-weight: 500;
+            opacity: 0.85;
         }
-        
+
         .events-mini-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
         }
-        
+
         .mini-event-card {
             background: rgba(255, 255, 255, 0.9);
-            padding: 1.2rem;
+            padding: 1.25rem 1.5rem;
             border-radius: 14px;
+            border: 1px solid rgba(139, 30, 30, 0.12);
             transition: all 0.2s;
-            border: 1px solid rgba(139, 30, 30, 0.15);
         }
-        
+
         .mini-event-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             background: white;
+            border-color: rgba(139, 30, 30, 0.25);
         }
-        
+
         .mini-event-date {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--deep-red);
             font-weight: 700;
-            margin-bottom: 0.4rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.4rem;
         }
-        
+
         .mini-event-card h4 {
             font-size: 1rem;
-            margin-bottom: 0.6rem;
-            color: #2c1810;
+            margin-bottom: 0.75rem;
+            color: var(--dark-text);
+            font-weight: 500;
+            line-height: 1.4;
         }
-        
+
         .mini-event-link {
             color: var(--deep-red);
             text-decoration: none;
@@ -541,12 +725,15 @@
             display: inline-flex;
             align-items: center;
             gap: 0.3rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
         }
-        
+
         .mini-event-link:hover {
-            text-decoration: underline;
+            border-bottom-color: var(--deep-red);
         }
-        
+
+        /* Scheduler / booking section */
         .scheduler-container {
             background: rgba(255, 255, 255, 0.9);
             padding: 2rem;
@@ -554,11 +741,11 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             min-height: 700px;
         }
-        
+
         iframe {
             border-radius: 8px;
         }
-        
+
         footer {
             background-color: rgba(107, 22, 22, 0.85);
             backdrop-filter: blur(5px);
@@ -573,23 +760,15 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
-        .eventbrite-widget-container {
-            width: 100%;
-            min-height: 450px;
-        }
-        
-        .eventbrite-widget-container iframe {
-            width: 100%;
-            border: none;
-            min-height: 450px;
-        }
-        
+
+        /* ============================
+           RESPONSIVE
+           ============================ */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
             }
-        
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -602,31 +781,31 @@
                 padding: 2rem;
                 gap: 1.5rem;
             }
-        
+
             .nav-links.active {
                 display: flex;
             }
-        
+
             .hero-content p {
                 font-size: 1.4rem;
             }
-            
+
             .hero-content p:last-of-type {
                 font-size: 1.2rem;
             }
-        
+
             .services-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .video-grid {
                 grid-template-columns: 1fr;
             }
-        
+
             .section-container {
-                padding: 1.8rem;
+                padding: 1.8rem 1.25rem;
             }
-        
+
             .about-image-top,
             .about-image-bottom {
                 float: none;
@@ -634,28 +813,33 @@
                 margin: 20px auto;
                 display: block;
             }
-            
-            .event-details {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-            
+
             .event-header {
                 flex-direction: column;
                 text-align: center;
+                gap: 1.25rem;
             }
-            
+
+            .event-meta {
+                align-items: center;
+            }
+
+            .event-body {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+                gap: 1.5rem;
+            }
+
+            .event-pricing-panel {
+                position: static;
+            }
+
             .event-title {
                 font-size: 1.4rem;
             }
-            
-            .event-meta {
-                justify-content: center;
-            }
-            
-            .event-date-box {
-                min-width: 70px;
-                padding: 0.5rem 1rem;
+
+            .checkout-section {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -680,7 +864,7 @@
     <section id="home">
         <div class="hero">
             <div class="hero-content">
-                <p>“Your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it.”</p>
+                <p>"Your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it."</p>
                 <p>~ Rumi</p>
                 <a href="#contact" class="cta-button">Book Your Session</a>
             </div>
@@ -750,12 +934,13 @@
             <h2 class="section-title">Public Sound Baths</h2>
             <div id="eventbrite-dynamic-content">
                 <div class="loading-spinner">
-                    <p>✨ Loading sacred sound journeys from Eventbrite... ✨</p>
+                    <div class="loading-orb"></div>
+                    <p>✨ Loading sacred sound journeys... ✨</p>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <section id="contact" class="content-section">
         <div class="section-container">
             <h2 class="section-title">Book a Private Session</h2>
@@ -776,7 +961,9 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // ============================
+        // NAVIGATION
+        // ============================
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
         if (menuToggle) {
@@ -786,14 +973,13 @@
             link.addEventListener('click', () => navLinks.classList.remove('active'));
         });
 
-        // Smooth scroll + active nav
+        // Smooth scroll + active nav highlight
         const sections = document.querySelectorAll('section[id]');
         const navItems = document.querySelectorAll('.nav-links a');
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 200) current = section.getAttribute('id');
+                if (pageYOffset >= section.offsetTop - 200) current = section.getAttribute('id');
             });
             navItems.forEach(item => {
                 item.classList.remove('active');
@@ -801,158 +987,333 @@
             });
         });
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // ========== EVENTBRITE DYNAMIC INTEGRATION ==========
-        const EVENTBRITE_TOKEN = 'XFSAP35WPDQ34OBQ6PYS';
-        
-        // Add your event IDs here - add new IDs as you create events
-        const EVENT_IDS = ['1984848318752'];
-        
-        async function fetchAndDisplayEvents() {
-            const container = document.getElementById('eventbrite-dynamic-content');
-            if (!container) return;
-            
-            container.innerHTML = '<div class="loading-spinner"><p>✨ Loading sacred sound journeys... ✨</p></div>';
-            
-            let eventsHtml = '';
-            const eventsData = [];
-            
-            // Fetch each event by ID
-            for (const eventId of EVENT_IDS) {
-                try {
-                    const response = await fetch(`https://www.eventbriteapi.com/v3/events/${eventId}/?expand=venue,ticket_classes`, {
-                        headers: { 'Authorization': `Bearer ${EVENTBRITE_TOKEN}` }
-                    });
-                    
-                    if (response.ok) {
-                        const event = await response.json();
-                        eventsData.push(event);
-                    }
-                } catch (error) {
-                    console.error(`Error fetching event ${eventId}:`, error);
-                }
-            }
-            
-            if (eventsData.length === 0) {
-                container.innerHTML = `
-                    <div class="no-events-message">
-                        <h3>🌿 No Upcoming Events</h3>
-                        <p>Check back soon for new sound healing events!</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            // Sort events by date
-            eventsData.sort((a, b) => new Date(a.start.utc) - new Date(b.start.utc));
-            
-            // Build HTML for each event
-            eventsData.forEach((event, index) => {
-                const eventDate = new Date(event.start.utc);
-                const month = eventDate.toLocaleString('default', { month: 'short' }).toUpperCase();
-                const day = eventDate.getDate();
-                const formattedDate = eventDate.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-                const formattedTime = eventDate.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
-                
-                let priceText = 'FREE';
-                if (event.ticket_classes && event.ticket_classes.length > 0) {
-                    const ticket = event.ticket_classes[0];
-                    if (ticket.cost && ticket.cost.major !== undefined) {
-                        priceText = `$${ticket.cost.major}.${ticket.cost.minor || '00'}`;
-                    }
-                }
-                
-                const locationText = event.venue?.name ? `📍 ${event.venue.name}` : '📍 7 Songs Sanctuary - Lilburn, GA';
-                const descriptionHtml = event.description?.html || event.description?.text || '<p>Join us for this transformative sound healing experience.</p>';
-                const widgetContainerId = `eb-widget-${event.id}`;
-                
-                eventsHtml += `
-                    <div class="event-card">
-                        <div class="event-header">
-                            <div class="event-date-box">
-                                <span class="event-month">${month}</span>
-                                <span class="event-day">${day}</span>
-                            </div>
-                            <div class="event-title-box">
-                                <h3 class="event-title">${escapeHtml(event.name.text)}</h3>
-                                <div class="event-meta">
-                                    <span>${locationText}</span>
-                                    <span>🕊️ ${formattedDate} at ${formattedTime}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="event-details">
-                            <div class="event-description-text">
-                                ${descriptionHtml}
-                            </div>
-                            <div class="event-pricing">
-                                <div class="price-amount">${priceText}</div>
-                                <div class="price-note">per person</div>
-                                ${event.capacity ? `<div class="capacity">🎟️ Limited to ${event.capacity} participants</div>` : ''}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="registration-section">
-                        <h3>🎵 Reserve Your Mat</h3>
-                        <div id="${widgetContainerId}"></div>
-                    </div>
-                `;
-            });
-            
-            container.innerHTML = eventsHtml;
-            
-            // Load Eventbrite widget script and create widgets
-            if (typeof window.EBWidgets === 'undefined') {
-                const script = document.createElement('script');
-                script.src = 'https://www.eventbrite.com/static/widgets/eb_widgets.js';
-                script.onload = () => {
-                    eventsData.forEach(event => {
-                        createWidget(event.id, `eb-widget-${event.id}`);
-                    });
-                };
-                document.head.appendChild(script);
-            } else {
-                eventsData.forEach(event => {
-                    createWidget(event.id, `eb-widget-${event.id}`);
-                });
-            }
-        }
-        
-        function createWidget(eventId, containerId) {
-            try {
-                window.EBWidgets.createWidget({
-                    widgetType: 'checkout',
-                    eventId: eventId,
-                    iframeContainerId: containerId,
-                    iframeContainerHeight: 450,
-                    onOrderComplete: function() {
-                        alert('✨ Thank you! Your registration is confirmed. ✨');
-                    }
-                });
-            } catch (err) {
-                console.error('Widget error:', err);
-                const container = document.getElementById(containerId);
-                if (container) {
-                    container.innerHTML = `<a href="https://www.eventbrite.com/e/${eventId}" target="_blank" class="cta-button">Purchase Tickets on Eventbrite →</a>`;
-                }
-            }
-        }
-        
+        // ============================
+        // EVENTBRITE DYNAMIC EVENTS
+        // ============================
+
+        // Your Eventbrite private API token and organizer ID.
+        // NOTE: This token is visible in your page source. It has read-only
+        // scope so it cannot be used to modify your account, but be aware
+        // it is public. Rotate it in your Eventbrite developer settings if
+        // you ever have concerns.
+        const EB_TOKEN      = 'XFSAP35WPDQ34OBQ6PYS';
+        const ORGANIZER_ID  = '120522767811';
+        const EB_BASE       = 'https://www.eventbriteapi.com/v3';
+        const EB_PROFILE    = 'https://www.eventbrite.com/o/j-kirk-plunkett-120522767811';
+
+        // --- Utility helpers ---
+
         function escapeHtml(str) {
             if (!str) return '';
-            const div = document.createElement('div');
-            div.textContent = str;
-            return div.innerHTML;
+            const d = document.createElement('div');
+            d.textContent = str;
+            return d.innerHTML;
         }
-        
-        // Load events when page loads
-        document.addEventListener('DOMContentLoaded', fetchAndDisplayEvents);
+
+        // Parse a local datetime string (e.g. "2025-08-15T19:00:00") into display parts.
+        // We use local because Eventbrite already converts to the event timezone.
+        function parseDateLocal(localStr) {
+            // Append a fake timezone marker so the browser treats it as local,
+            // not UTC. Without this, Safari/Firefox may shift the hour.
+            const d = new Date(localStr.replace(' ', 'T'));
+            return {
+                month:   d.toLocaleString('en-US', { month: 'short' }).toUpperCase(),
+                day:     d.getDate(),
+                year:    d.getFullYear(),
+                full:    d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+                time:    d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
+            };
+        }
+
+        // Pull the lowest ticket price (or "FREE") from ticket_classes array.
+        function lowestPrice(ticketClasses) {
+            if (!ticketClasses || ticketClasses.length === 0) {
+                return { text: 'FREE', isFree: true };
+            }
+            const paid = ticketClasses.filter(t =>
+                t.cost && parseFloat(t.cost.major_value) > 0 && !t.free && !t.hidden
+            );
+            if (paid.length === 0) return { text: 'FREE', isFree: true };
+            paid.sort((a, b) => parseFloat(a.cost.major_value) - parseFloat(b.cost.major_value));
+            return { text: paid[0].cost.display, isFree: false };
+        }
+
+        // Is every ticket class sold out?
+        function isSoldOut(ticketClasses) {
+            if (!ticketClasses || ticketClasses.length === 0) return false;
+            return ticketClasses.every(t => t.quantity_remaining !== undefined && t.quantity_remaining <= 0);
+        }
+
+        // --- Fetch next event from organizer ---
+
+        async function fetchNextEvent() {
+            const url =
+                `${EB_BASE}/organizers/${ORGANIZER_ID}/events/` +
+                `?status=live` +
+                `&time_filter=current_future` +
+                `&order_by=start_asc` +
+                `&expand=venue,ticket_classes` +
+                `&page_size=10`;
+
+            const res = await fetch(url, {
+                headers: { 'Authorization': `Bearer ${EB_TOKEN}` }
+            });
+
+            if (!res.ok) {
+                const body = await res.text();
+                throw new Error(`Eventbrite API ${res.status}: ${body}`);
+            }
+
+            const data = await res.json();
+            // Filter out cancelled events just in case the API returns them
+            const events = (data.events || []).filter(e => !e.is_cancelled);
+            return events; // [0] = next event, [1..] = upcoming
+        }
+
+        // --- Build HTML for the featured (next) event ---
+
+        function buildFeaturedEventHTML(event) {
+            const start    = parseDateLocal(event.start.local);
+            const end      = parseDateLocal(event.end.local);
+            const price    = lowestPrice(event.ticket_classes);
+            const soldOut  = isSoldOut(event.ticket_classes);
+
+            const venueName   = event.venue?.name || '';
+            const venueCity   = event.venue?.address?.city || 'Lilburn';
+            const venueState  = event.venue?.address?.region || 'GA';
+            const locationStr = venueName
+                ? `${venueName} · ${venueCity}, ${venueState}`
+                : `${venueCity}, ${venueState}`;
+
+            // Eventbrite description.html can be lengthy styled HTML.
+            // Fall back gracefully if it's missing.
+            const descriptionHTML = event.description?.html
+                ? event.description.html
+                : event.description?.text
+                    ? `<p>${escapeHtml(event.description.text)}</p>`
+                    : `<p>Join us for an immersive sound healing journey. Space is limited — reserve your mat today.</p>`;
+
+            const capacityHTML = event.capacity
+                ? `<div class="capacity-badge">🎟 Limited to ${event.capacity} participants</div>`
+                : '';
+
+            const soldOutBadge = soldOut
+                ? `<div class="sold-out-badge">SOLD OUT</div>`
+                : '';
+
+            // The checkout widget will be injected into #eb-checkout-container
+            const checkoutBody = soldOut
+                ? `<p style="color:#666; margin-bottom:1rem;">This event is currently sold out.</p>
+                   <a href="${escapeHtml(event.url)}" target="_blank" rel="noopener" class="cta-button"
+                      style="background:var(--deep-red);color:white;border-color:var(--deep-red);">
+                       View on Eventbrite →
+                   </a>`
+                : `<p class="checkout-subtext">Secure your space below — no need to leave this page.</p>
+                   <div id="eb-checkout-container" class="eb-widget-container">
+                       <div class="loading-spinner" style="padding:2rem;">
+                           <div class="loading-orb" style="width:36px;height:36px;border-width:3px;"></div>
+                       </div>
+                   </div>`;
+
+            return `
+            <div class="event-card">
+
+                <!-- Header bar: date + title + meta -->
+                <div class="event-header">
+                    <div class="event-date-box">
+                        <span class="event-month">${start.month}</span>
+                        <span class="event-day">${start.day}</span>
+                        <span class="event-year">${start.year}</span>
+                    </div>
+                    <div class="event-title-box">
+                        <h3 class="event-title">${escapeHtml(event.name.text)}</h3>
+                        <div class="event-meta">
+                            <span>📍 ${escapeHtml(locationStr)}</span>
+                            <span>🕊 ${start.full} · ${start.time} – ${end.time}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Body: description + pricing panel -->
+                <div class="event-body">
+                    <div class="event-description-text">
+                        ${descriptionHTML}
+                    </div>
+                    <div class="event-pricing-panel">
+                        <div class="pricing-card">
+                            <div class="price-label">Admission</div>
+                            <span class="price-amount">${escapeHtml(price.text)}</span>
+                            <div class="price-note">per person</div>
+                            <hr class="price-divider">
+                            ${capacityHTML}
+                            ${soldOutBadge}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checkout -->
+                <div class="checkout-section">
+                    <div class="checkout-header">
+                        <h3>🎵 Reserve Your Mat</h3>
+                        <div class="divider-line"></div>
+                    </div>
+                    ${checkoutBody}
+                </div>
+
+            </div>`;
+        }
+
+        // --- Build mini cards for additional upcoming events ---
+
+        function buildAdditionalEventsHTML(events) {
+            if (!events || events.length === 0) return '';
+            const cards = events.slice(0, 3).map(e => {
+                const d = parseDateLocal(e.start.local);
+                return `
+                <div class="mini-event-card">
+                    <div class="mini-event-date">${d.full}</div>
+                    <h4>${escapeHtml(e.name.text)}</h4>
+                    <a class="mini-event-link" href="${escapeHtml(e.url)}" target="_blank" rel="noopener">
+                        View on Eventbrite →
+                    </a>
+                </div>`;
+            }).join('');
+
+            return `
+            <div class="additional-events">
+                <h3>More Upcoming Journeys</h3>
+                <div class="events-mini-grid">${cards}</div>
+            </div>`;
+        }
+
+        // --- Initialize the Eventbrite checkout widget ---
+
+        function initCheckoutWidget(eventId) {
+            const containerId = 'eb-checkout-container';
+
+            function mountWidget() {
+                try {
+                    window.EBWidgets.createWidget({
+                        widgetType: 'checkout',
+                        eventId: String(eventId),
+                        iframeContainerId: containerId,
+                        iframeContainerHeight: 520,
+                        onOrderComplete: function () {
+                            const el = document.getElementById(containerId);
+                            if (el) {
+                                el.innerHTML = `
+                                <div class="checkout-confirmed">
+                                    <div class="confirm-icon">✨</div>
+                                    <h3>You're registered!</h3>
+                                    <p>Thank you for reserving your space. A confirmation email is on its way.<br>
+                                       We look forward to sharing this healing journey with you.</p>
+                                </div>`;
+                            }
+                        }
+                    });
+                } catch (err) {
+                    console.error('EBWidgets error:', err);
+                    showCheckoutFallback(eventId, containerId);
+                }
+            }
+
+            if (typeof window.EBWidgets !== 'undefined') {
+                mountWidget();
+            } else {
+                const script = document.createElement('script');
+                script.src = 'https://www.eventbrite.com/static/widgets/eb_widgets.js';
+                script.onload = mountWidget;
+                script.onerror = function () {
+                    showCheckoutFallback(eventId, containerId);
+                };
+                document.head.appendChild(script);
+            }
+        }
+
+        function showCheckoutFallback(eventId, containerId) {
+            const el = document.getElementById(containerId);
+            if (el) {
+                el.innerHTML = `
+                <div class="checkout-fallback">
+                    <p style="color:#666; margin-bottom:1.2rem;">
+                        Purchase tickets securely on Eventbrite:
+                    </p>
+                    <a href="https://www.eventbrite.com/e/${eventId}"
+                       target="_blank" rel="noopener" class="cta-button"
+                       style="background:var(--deep-red);color:white;border-color:var(--deep-red);">
+                        Purchase Tickets →
+                    </a>
+                </div>`;
+            }
+        }
+
+        // --- Main orchestrator ---
+
+        async function loadEventsSection() {
+            const container = document.getElementById('eventbrite-dynamic-content');
+            if (!container) return;
+
+            // Show loading spinner
+            container.innerHTML = `
+                <div class="loading-spinner">
+                    <div class="loading-orb"></div>
+                    <p>✨ Loading sacred sound journeys... ✨</p>
+                </div>`;
+
+            try {
+                const events = await fetchNextEvent();
+
+                if (events.length === 0) {
+                    // No upcoming events
+                    container.innerHTML = `
+                    <div class="no-events-message">
+                        <h3>🌿 New Events Coming Soon</h3>
+                        <p>
+                            We're currently preparing new sound healing journeys for you.<br>
+                            <a href="${EB_PROFILE}" target="_blank" rel="noopener">Follow us on Eventbrite</a>
+                            to be notified the moment a new event is published, or reach out at
+                            <a href="mailto:7songsmeditation@gmail.com">7songsmeditation@gmail.com</a>
+                            to be added to our notification list.
+                        </p>
+                    </div>`;
+                    return;
+                }
+
+                const nextEvent       = events[0];
+                const additionalEvents = events.slice(1);
+
+                // Render featured event card + additional events
+                container.innerHTML =
+                    buildFeaturedEventHTML(nextEvent) +
+                    buildAdditionalEventsHTML(additionalEvents);
+
+                // Wire up the checkout widget (only if not sold out)
+                const soldOut = isSoldOut(nextEvent.ticket_classes);
+                if (!soldOut) {
+                    initCheckoutWidget(nextEvent.id);
+                }
+
+            } catch (err) {
+                console.error('Events load error:', err);
+                container.innerHTML = `
+                <div class="error-message">
+                    <p>We weren't able to load upcoming events right now.<br>
+                    Please visit our 
+                    <a href="${EB_PROFILE}" target="_blank" rel="noopener">Eventbrite page</a>
+                    to see all scheduled events.</p>
+                </div>`;
+            }
+        }
+
+        // Kick off on page load
+        document.addEventListener('DOMContentLoaded', loadEventsSection);
     </script>
 </body>
 </html>
